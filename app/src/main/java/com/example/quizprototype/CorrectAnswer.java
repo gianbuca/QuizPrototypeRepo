@@ -16,7 +16,7 @@ public class CorrectAnswer {
         return ca;
     }
 
-    public static ArrayList<CorrectAnswer> LoadCorrectAnswer(){
+    public static ArrayList<CorrectAnswer> LoadCorrectAnswers(){
         ArrayList<CorrectAnswer> myCorrectAnswers=new ArrayList<CorrectAnswer>();
         myCorrectAnswers.add(new CorrectAnswer(1,""));
         myCorrectAnswers.add(new CorrectAnswer(2,""));

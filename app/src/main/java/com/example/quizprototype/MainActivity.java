@@ -6,13 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public String username;
-    public List<Player> players;
+    public List<Player> players=new ArrayList<>();
     public boolean userAlreadyExists=false;
 
     @Override
@@ -23,20 +24,30 @@ public class MainActivity extends AppCompatActivity {
 
     public void StartGame(View view){
         EditText username_editText=findViewById(R.id.username_editText);
-        username=username_editText.getText().toString();
-        for(Player p : players){
-            if(p.username==username)
-            {
-                userAlreadyExists=true;
+        String username=username_editText.getText().toString();
+        try {
+            for(Player p : players){
+                if(p.username==username)
+                {
+                    userAlreadyExists=true;
+                }
+            }
+            if(!userAlreadyExists){
+                int playerListSize=players.size();
+                players.add(playerListSize,new Player(username));
+                Player currentPlayer=(Player) players.get(playerListSize);
+                Intent intent=new Intent(this,Match.class);
+                intent.putExtra("username_list", currentPlayer);
+                startActivity(intent);
+            }
+            else{
+                Toast.makeText(this, "username already exist", Toast.LENGTH_SHORT).show();
+                username_editText.setText("");
+                userAlreadyExists=false;
             }
         }
-        if(!userAlreadyExists){
-            Player newPlayer=new Player(username);
-            userAlreadyExists=false;
-            Intent intent=new Intent(this,Match.class);
-            intent.putExtra("username", username);
-            startActivity(intent);
+        catch (Exception e){
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
         }
-
     }
 }

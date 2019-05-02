@@ -1,6 +1,9 @@
 package com.example.quizprototype;
 
-public class Player {
+
+import java.io.Serializable;
+
+public class Player implements Serializable {
     public String username;
 
     public Player(String user_name){

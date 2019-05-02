@@ -17,9 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Match">
-            <intent-filter>
 
-            </intent-filter>
         </activity>
     </application>
 

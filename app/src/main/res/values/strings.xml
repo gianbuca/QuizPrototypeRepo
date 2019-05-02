@@ -2,5 +2,7 @@
     <string name="app_name">QuizPrototype</string>
     <string name="start_game">Start</string>
     <string name="insert_username">insert here your username...</string>
+    <string name="total_question_number">6</string>
+    <string name="slash">/</string>
 
 </resources>
