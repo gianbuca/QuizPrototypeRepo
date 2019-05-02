@@ -5,9 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
             if(!userAlreadyExists){
                 int playerListSize=players.size();
                 players.add(playerListSize,new Player(username));
-                Player currentPlayer=(Player) players.get(playerListSize);
+                Player currentPlayer= players.get(playerListSize);
                 Intent intent=new Intent(this,Match.class);
-                intent.putExtra("username_list", currentPlayer);
+                intent.putExtra("username", currentPlayer);
                 startActivity(intent);
             }
             else{

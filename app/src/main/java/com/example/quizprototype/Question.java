@@ -15,21 +15,28 @@ public class Question {
         this.question=question;
     }
 
+    public Question(){}
+
     public static Question getQuestion(ArrayList<Question> myQuestionList){
+        Question myRandomQuestion=new Question();
         Random random=new Random();
         int i = random.nextInt(myQuestionList.size() - 1) + 1;
-        Question q=myQuestionList.get(i);
-        return q;
+        for(Question q: myQuestionList){
+            if(q.id==i)
+                myRandomQuestion=q;
+        }
+
+        return myRandomQuestion;
     }
 
     public static ArrayList<Question> LoadQuestions(){
         ArrayList<Question> myQuestions=new ArrayList<Question>();
-        myQuestions.add(new Question(1,""));
-        myQuestions.add(new Question(2,""));
-        myQuestions.add(new Question(3,""));
-        myQuestions.add(new Question(4,""));
-        myQuestions.add(new Question(5,""));
-        myQuestions.add(new Question(6,""));
+        myQuestions.add(new Question(1,"Nome del robottino aiutante di Archimede"));
+        myQuestions.add(new Question(2,"Cosa mangia Pippo per diventare Superpippo"));
+        myQuestions.add(new Question(3,"Città veneta famosa per la grappa"));
+        myQuestions.add(new Question(4,"Uccise il Minotauro"));
+        myQuestions.add(new Question(5,"Come si chiama la strega in perenne lotta con Paperon De'Paperoni?"));
+        myQuestions.add(new Question(6,"Figlio di Ulisse"));
         return myQuestions;
     }
 }

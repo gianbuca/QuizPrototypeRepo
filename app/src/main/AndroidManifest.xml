@@ -19,6 +19,9 @@
         <activity android:name=".Match">
 
         </activity>
+        <activity android:name=".MatchResult">
+
+        </activity>
     </application>
 
 </manifest>

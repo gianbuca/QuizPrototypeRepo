@@ -19,19 +19,25 @@ public class Answers {
         this.answer_4=a4;
     }
 
+    public Answers(){}
+
     public static Answers getAnswers(int i, ArrayList<Answers> myAnswerList){
-        Answers answer=myAnswerList.get(i);
-        return answer;
+        Answers myRandomAnswers=new Answers();
+        for(Answers a: myAnswerList){
+            if(a.id==i)
+                myRandomAnswers=a;
+        }
+        return myRandomAnswers;
     }
 
     public static ArrayList<Answers> LoadAnswers(){
         ArrayList<Answers> myQuestions=new ArrayList<Answers>();
-        myQuestions.add(new Answers(1,"", "","",""));
-        myQuestions.add(new Answers(2,"", "","",""));
-        myQuestions.add(new Answers(3,"", "","",""));
-        myQuestions.add(new Answers(4,"", "","",""));
-        myQuestions.add(new Answers(5,"", "","",""));
-        myQuestions.add(new Answers(6,"", "","",""));
+        myQuestions.add(new Answers(1,"C-18", "Edy","Flip","Ken"));
+        myQuestions.add(new Answers(2,"mela", "fagiolo magico","strudel","arachide"));
+        myQuestions.add(new Answers(3,"Bassano", "Rovigo","Verona","Belluno"));
+        myQuestions.add(new Answers(4,"Teseo", "Argo","Minosse","Luigi"));
+        myQuestions.add(new Answers(5,"Bellatrix", "Morgana","Amelia","Ursula"));
+        myQuestions.add(new Answers(6,"Autolico", "Telemaco","Claudio","Diomede"));
         return myQuestions;
     }
 }
